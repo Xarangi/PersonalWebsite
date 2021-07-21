@@ -4,9 +4,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
-import { BokehPass } from 'three/examples/jsm/postprocessing/BokehPass.js'
-import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass.js'
-import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import * as dat from 'dat.gui'
 import { MeshBasicMaterial } from 'three'
 
@@ -22,6 +19,7 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.RingBufferGeometry(6.5,7,8);
 const geometryc = new THREE.CircleBufferGeometry(6,8,0,2*Math.PI)
+const geo = new THREE.BoxGeometry(3,3,3)
 // const geometry1 = new THREE.RingBufferGeometry(5.6,6,8);
 // const geometry2 = new THREE.RingBufferGeometry(4.7,5,8);
 // const geometry3 = new THREE.RingBufferGeometry(3.8,4,8);
@@ -30,15 +28,15 @@ const geometryc = new THREE.CircleBufferGeometry(6,8,0,2*Math.PI)
 
 
 // Materials
-
+const texture = new THREE.TextureLoader().load('text.png')
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0x7df9ff)
 const material1 = new THREE.MeshBasicMaterial()
 material1.color = new THREE.Color(0x0000FF)
-const material2 = new THREE.MeshBasicMaterial()
-material2.color = new THREE.Color(0x7df9ff)
-material2.transparent = true
-material2.opacity=0
+const material2 = new THREE.MeshBasicMaterial({map:texture})
+material2.color= new THREE.Color('white')
+// material2.transparent = true
+// material2.opacity=0
 
 
 // Mesh
@@ -61,7 +59,7 @@ const ring6 = new THREE.Mesh(geometry,material1)
 scene.add(ring6)
 ring6.position.z=25
 
-const octagon = new THREE.Mesh(geometryc,material2)
+const octagon = new THREE.Mesh(geo,material2)
 octagon.position.z=20
 scene.add(octagon)
 
@@ -392,7 +390,8 @@ function moveCamera()
     camera.position.z=(t*-0.02)+6;
     if (camera.position.z>=22)
     {   camera.position.z=((t*-0.02)-16)*(0.3)+22
-        material2.opacity=(camera.position.z-22)*(0.05)}
+        // material2.opacity=(camera.position.z-22)*(0.05)
+    }
     if(camera.position.z>=50)
     {   
         camera.position.x=(camera.position.z-50)*10

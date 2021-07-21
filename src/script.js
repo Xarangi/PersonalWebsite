@@ -21,11 +21,12 @@ const scene = new THREE.Scene()
 
 // Objects
 const geometry = new THREE.RingBufferGeometry(6.5,7,8);
-const geometry1 = new THREE.RingBufferGeometry(5.6,6,8);
-const geometry2 = new THREE.RingBufferGeometry(4.7,5,8);
-const geometry3 = new THREE.RingBufferGeometry(3.8,4,8);
-const geometry4 = new THREE.RingBufferGeometry(2.9,3,8);
-const geometry5 = new THREE.RingBufferGeometry(1.9,2,8);
+const geometryc = new THREE.CircleBufferGeometry(6,8,0,2*Math.PI)
+// const geometry1 = new THREE.RingBufferGeometry(5.6,6,8);
+// const geometry2 = new THREE.RingBufferGeometry(4.7,5,8);
+// const geometry3 = new THREE.RingBufferGeometry(3.8,4,8);
+// const geometry4 = new THREE.RingBufferGeometry(2.9,3,8);
+// const geometry5 = new THREE.RingBufferGeometry(1.9,2,8);
 
 
 // Materials
@@ -35,7 +36,9 @@ material.color = new THREE.Color(0x7df9ff)
 const material1 = new THREE.MeshBasicMaterial()
 material1.color = new THREE.Color(0x0000FF)
 const material2 = new THREE.MeshBasicMaterial()
-material2.color = new THREE.Color(0xff3503)
+material2.color = new THREE.Color(0x7df9ff)
+material2.transparent = true
+material2.opacity=0
 
 
 // Mesh
@@ -57,6 +60,10 @@ ring5.position.z=20
 const ring6 = new THREE.Mesh(geometry,material1)
 scene.add(ring6)
 ring6.position.z=25
+
+const octagon = new THREE.Mesh(geometryc,material2)
+octagon.position.z=20
+scene.add(octagon)
 
 // const ring1e = new THREE.Mesh(geometry,material)
 // scene.add(ring1e)
@@ -332,25 +339,25 @@ scene.add(camera)
 
 //Import
 
-const loader = new GLTFLoader()
+// const loader = new GLTFLoader()
 
-loader.load(
-	// resource URL
-	'/untitled.glb',
-	// called when the resource is loaded
-	function ( gltf ) { 
-        gltf.traverse( function( child ) {
-        if ( child instanceof THREE.Mesh ) {
-            child.material = new THREE.MeshBasicMaterial();
-        }
-    } );
+// loader.load(
+// 	// resource URL
+// 	'/untitled.glb',
+// 	// called when the resource is loaded
+// 	function ( gltf ) { 
+//         gltf.traverse( function( child ) {
+//         if ( child instanceof THREE.Mesh ) {
+//             child.material = new THREE.MeshBasicMaterial();
+//         }
+//     } );
 
-		scene.add( gltf.scene )
-    }, undefined, function ( error ) {
+// 		scene.add( gltf.scene )
+//     }, undefined, function ( error ) {
 
-        console.error( error );
+//         console.error( error );
     
-    } );
+//     } );
 
 /**
  * Renderer
@@ -381,7 +388,20 @@ composer.addPass(bloompass);
 function moveCamera()
 {
     const t =document.body.getBoundingClientRect().top;
-    camera.position.z=(t*-0.05)+6;
+    material2.opacity=0;
+    camera.position.z=(t*-0.02)+6;
+    if (camera.position.z>=22)
+    {   camera.position.z=((t*-0.02)-16)*(0.3)+22
+        material2.opacity=(camera.position.z-22)*(0.05)}
+    if(camera.position.z>=50)
+    {   
+        camera.position.x=(camera.position.z-50)*10
+        camera.position.z=50
+    }
+    else
+    {
+        camera.position.x =0
+    }
 }
 const clock = new THREE.Clock()
 
@@ -397,6 +417,7 @@ const tick = () =>
     ring4.rotation.z = .5 * elapsedTime
     ring5.rotation.z = .6 * elapsedTime
     ring6.rotation.z = .7 * elapsedTime
+    octagon.rotation.z = 0.4* elapsedTime
 
     // ring1s.rotation.z = .2 * elapsedTime
     // ring2s.rotation.z = .3 * elapsedTime

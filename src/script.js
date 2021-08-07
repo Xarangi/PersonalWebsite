@@ -4,11 +4,12 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import * as dat from 'dat.gui'
 import { MeshBasicMaterial } from 'three'
 
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -18,8 +19,11 @@ const scene = new THREE.Scene()
 
 // Objects
 const geometry = new THREE.RingBufferGeometry(6.5,7,8);
-const geometryc = new THREE.CircleBufferGeometry(6,8,0,2*Math.PI)
-const geo = new THREE.BoxGeometry(3,3,3)
+const geo = new THREE.BoxGeometry(8,2,1)
+const geob = new THREE.SphereBufferGeometry(1)
+const geow = new THREE.RingBufferGeometry(7,7.6,8);
+const geowb = new THREE.RingBufferGeometry(0,6.7,8);
+
 // const geometry1 = new THREE.RingBufferGeometry(5.6,6,8);
 // const geometry2 = new THREE.RingBufferGeometry(4.7,5,8);
 // const geometry3 = new THREE.RingBufferGeometry(3.8,4,8);
@@ -28,16 +32,23 @@ const geo = new THREE.BoxGeometry(3,3,3)
 
 
 // Materials
-const texture = new THREE.TextureLoader().load('text.png')
+const texture = new THREE.TextureLoader().load('texta.png');
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0x7df9ff)
 const material1 = new THREE.MeshBasicMaterial()
 material1.color = new THREE.Color(0x0000FF)
-const material2 = new THREE.MeshBasicMaterial({map:texture})
-material2.color= new THREE.Color('white')
-// material2.transparent = true
-// material2.opacity=0
+const material2 = new THREE.MeshBasicMaterial({map: texture});
+material2.blending = THREE.NormalBlending;
 
+material2.transparent = true
+material2.opacity=0
+
+const material3 = new THREE.MeshBasicMaterial()
+material3.color = new THREE.Color(0x7df9ff)
+material3.wireframe = true
+
+const material4 = new THREE.MeshBasicMaterial()
+material4.color = new THREE.Color(0x0)
 
 // Mesh
 const ring1 = new THREE.Mesh(geometry,material)
@@ -62,6 +73,51 @@ ring6.position.z=25
 const octagon = new THREE.Mesh(geo,material2)
 octagon.position.z=20
 scene.add(octagon)
+
+const sphere1 = new THREE.Mesh(geob,material3)
+sphere1.position.z=47
+sphere1.position.y=-10
+scene.add(sphere1)
+
+const bg = new THREE.Mesh(geow,material)
+bg.position.z=46
+bg.position.y = -10
+scene.add(bg)
+
+const bgw = new THREE.Mesh(geowb,material4)
+bgw.position.z=46
+bgw.position.y = -10
+scene.add(bgw)
+
+const bg1 = new THREE.Mesh(geow,material)
+bg1.position.z=45
+bg1.position.y = -25
+scene.add(bg1)
+
+const bg1w = new THREE.Mesh(geowb,material4)
+bg1w.position.z=45
+bg1w.position.y = -25
+scene.add(bg1w)
+
+const bg2 = new THREE.Mesh(geow,material)
+bg2.position.z=46
+bg2.position.y = -40
+scene.add(bg2)
+
+const bg3 = new THREE.Mesh(geow,material)
+bg3.position.z=45
+bg3.position.y = -55
+scene.add(bg3)
+
+const bg2w = new THREE.Mesh(geowb,material4)
+bg2w.position.z=46
+bg2w.position.y = -40
+scene.add(bg2w)
+
+const bg3w = new THREE.Mesh(geowb,material4)
+bg3w.position.z=45
+bg3w.position.y = -55
+scene.add(bg3w)
 
 // const ring1e = new THREE.Mesh(geometry,material)
 // scene.add(ring1e)
@@ -290,11 +346,11 @@ scene.add(octagon)
 
 // Lights
 
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
-scene.add(pointLight)
+// const pointLight = new THREE.PointLight(0xffffff, 0.1)
+// pointLight.position.x = 2
+// pointLight.position.y = 3
+// pointLight.position.z = 4
+// scene.add(pointLight)
 
 /**
  * Sizes
@@ -313,12 +369,15 @@ window.addEventListener('resize', () =>
     // Update camera
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
+    moveCamera()
 
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     composer.setSize(sizes.width, sizes.height)
     composer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+
 })
 
 /**
@@ -328,34 +387,24 @@ window.addEventListener('resize', () =>
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
 camera.position.y = 0
-camera.position.z = 6
+camera.position.z = 7.5
 scene.add(camera)
 
-// Controls
+//Controls
 //  const controls = new OrbitControls(camera, canvas)
 //  controls.enableDamping = true
 
 //Import
 
-// const loader = new GLTFLoader()
+// const loaderx = new GLTFLoader()
 
-// loader.load(
+// loaderx.load(
 // 	// resource URL
-// 	'/untitled.glb',
+// 	'untitled.glb',
 // 	// called when the resource is loaded
-// 	function ( gltf ) { 
-//         gltf.traverse( function( child ) {
-//         if ( child instanceof THREE.Mesh ) {
-//             child.material = new THREE.MeshBasicMaterial();
-//         }
-//     } );
-
-// 		scene.add( gltf.scene )
-//     }, undefined, function ( error ) {
-
-//         console.error( error );
-    
-//     } );
+// 	function ( gltf ) {   mixer= new THREE.AnimationMixer(gltf.scene);
+//         gltf.animations.forEach((clip) => {mixer.clipAction(clip).play(); });
+//      scene.add(gltf.scene)})
 
 /**
  * Renderer
@@ -385,21 +434,44 @@ composer.addPass(bloompass);
  
 function moveCamera()
 {
-    const t =document.body.getBoundingClientRect().top;
+    const t =((document.body.getBoundingClientRect().top)/sizes.height)*754;
+    
     material2.opacity=0;
-    camera.position.z=(t*-0.02)+6;
+    camera.position.z=(t*-0.015)+7.5;
+    ring1.position.y=0
+    ring2.position.y=0
+    ring3.position.y=0
+    ring4.position.y=0
+    ring5.position.y=0
+    ring6.position.y=0
     if (camera.position.z>=22)
-    {   camera.position.z=((t*-0.02)-16)*(0.3)+22
-        // material2.opacity=(camera.position.z-22)*(0.05)
+    {   camera.position.z=((t*-0.015)-14.5)*(0.5)+22
+        if (camera.position.z>=30)
+        {
+            material2.opacity= 1- (camera.position.z-30)*(0.3)
+            camera.position.z=(((t*-0.015)-14.5)*(0.5)-8)*(2)+30;
+        }
+        else
+        {    material2.opacity=(camera.position.z-22)*(0.3)}
     }
+ 
     if(camera.position.z>=50)
-    {   
-        camera.position.x=(camera.position.z-50)*10
+    {
+        camera.position.y=(camera.position.z-50)*-0.5
         camera.position.z=50
+        if(camera.position.y<=-10)
+        {
+        ring1.position.y=(camera.position.y+10)*100
+        ring2.position.y=(camera.position.y+10)*100
+        ring3.position.y=(camera.position.y+10)*100
+        ring4.position.y=(camera.position.y+10)*100
+        ring5.position.y=(camera.position.y+10)*100
+        ring6.position.y=(camera.position.y+10)*100
+    }
     }
     else
     {
-        camera.position.x =0
+        camera.position.y =0
     }
 }
 const clock = new THREE.Clock()
@@ -410,13 +482,13 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
-    ring1.rotation.z = .2 * elapsedTime
-    ring2.rotation.z = .3 * elapsedTime
-    ring3.rotation.z = .4 * elapsedTime
-    ring4.rotation.z = .5 * elapsedTime
-    ring5.rotation.z = .6 * elapsedTime
-    ring6.rotation.z = .7 * elapsedTime
-    octagon.rotation.z = 0.4* elapsedTime
+    ring1.rotation.z = .4 * elapsedTime
+    ring2.rotation.z = 1+ .4 * elapsedTime
+    ring3.rotation.z = 2+ .4 * elapsedTime
+    ring4.rotation.z = 3 + .4 * elapsedTime
+    ring5.rotation.z = 4 + .4 * elapsedTime
+    ring6.rotation.z = 5+ .4 * elapsedTime
+    // octagon.rotation.z = 0.4* elapsedTime
 
     // ring1s.rotation.z = .2 * elapsedTime
     // ring2s.rotation.z = .3 * elapsedTime

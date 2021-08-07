@@ -4,13 +4,18 @@
     padding: 0;
 }
 
-html,
-body
-{
-    height: 100vh;
-    font-family: 'Poppins';
-}
+@font-face {
+    font-family: 'nexa_lightregular';
+    src: url('nexalight-webfont.woff2') format('woff2'),
+         url('nexalight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
+}
+html
+{
+    font-family: 'Nexa';
+}
 .webgl
 {
     position: fixed;
@@ -18,8 +23,38 @@ body
     left: 0;
     outline: none;
 }
+
 section 
 {
+    color:rgb(255, 255, 255);
     height:100vh;
     width:100%;
+}
+main{
+    position:absolute;
+    color: aliceblue;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+div{
+    font-size: clamp(16px, 1vw, 50px);
+    height:100vh;
+    text-align: center;
+    color: aliceblue;
+    padding: 1.5rem;
+    grid-column:3/11;
+    background: rgba(15, 15, 15, 0.7);
+
+    margin:1rem;
+}
+h3
+{text-align:left;
+padding:0.5rem;
+opacity:1;
+}
+h2
+{text-align:left;
+padding:1rem;
+opacity:1;
 }

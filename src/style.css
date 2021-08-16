@@ -14,7 +14,8 @@
 }
 html
 {
-    font-family: 'Nexa';
+    font-family: 'nexa_lightregular';
+    font-size: clamp(16px, 1.25vw, 50px);
 }
 .webgl
 {
@@ -36,9 +37,10 @@ main{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
 }
 div{
-    font-size: clamp(16px, 1vw, 50px);
+    
     height:100vh;
     text-align: center;
     color: aliceblue;

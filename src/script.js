@@ -21,6 +21,7 @@ const scene = new THREE.Scene()
 const geometry = new THREE.RingBufferGeometry(6.5,7,8);
 const geo = new THREE.BoxGeometry(8,2,1)
 const geob = new THREE.SphereBufferGeometry(1)
+const geoc = new THREE.SphereBufferGeometry(2)
 const geow = new THREE.RingBufferGeometry(7,7.6,8);
 const geowb = new THREE.RingBufferGeometry(0,6.7,8);
 
@@ -46,6 +47,10 @@ material2.opacity=0
 const material3 = new THREE.MeshBasicMaterial()
 material3.color = new THREE.Color(0x7df9ff)
 material3.wireframe = true
+
+const materialx = new THREE.MeshBasicMaterial()
+materialx.color = new THREE.Color(0xfed4c9)
+materialx.wireframe = true
 
 const material4 = new THREE.MeshBasicMaterial()
 material4.color = new THREE.Color(0x0)
@@ -78,6 +83,16 @@ const sphere1 = new THREE.Mesh(geob,material3)
 sphere1.position.z=47
 sphere1.position.y=-10
 scene.add(sphere1)
+
+const sphere2 = new THREE.Mesh(geoc,materialx)
+sphere2.position.z=47
+sphere2.position.y=-10
+scene.add(sphere2)
+
+// const sphere3 = new THREE.Mesh(geob,material3)
+// sphere3.position.z=47
+// sphere3.position.y=-10
+// scene.add(sphere3)
 
 const bg = new THREE.Mesh(geow,material)
 bg.position.z=46

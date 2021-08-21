@@ -16,6 +16,7 @@ html
 {
     font-family: 'nexa_lightregular';
     font-size: clamp(16px, 1.25vw, 50px);
+    min-height: 100vh;
 }
 .webgl
 {
@@ -41,7 +42,7 @@ main{
 }
 div{
     
-    height:100vh;
+ 
     text-align: center;
     color: aliceblue;
     padding: 1.5rem;
@@ -57,6 +58,6 @@ opacity:1;
 }
 h2
 {text-align:left;
-padding:1rem;
+padding:2rem;
 opacity:1;
 }

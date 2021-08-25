@@ -45,7 +45,8 @@ div{
  
     text-align: center;
     color: aliceblue;
-    padding: 1.5rem;
+    padding: 2rem;
+    margin: 1rem;
     grid-column:3/11;
     background: rgba(15, 15, 15, 0.7);
 
@@ -61,3 +62,10 @@ h2
 padding:2rem;
 opacity:1;
 }
+.s
+{text-align: center;}
+.k
+{display:grid;
+gap: 1rem;
+grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+background: transparent;}

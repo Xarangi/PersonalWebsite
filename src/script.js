@@ -23,8 +23,8 @@ const geo = new THREE.BoxGeometry(8,2,1)
 const geo0 = new THREE.BoxGeometry(11,11,1)
 const geob = new THREE.SphereBufferGeometry(1)
 const geoc = new THREE.SphereBufferGeometry(2)
-const geow = new THREE.RingBufferGeometry(7,7.6,8);
-const geowb = new THREE.RingBufferGeometry(0,6.7,8);
+const geow = new THREE.RingBufferGeometry(6,6.6,8);
+const geowb = new THREE.RingBufferGeometry(0,5.7,8);
 
 // const geometry1 = new THREE.RingBufferGeometry(5.6,6,8);
 // const geometry2 = new THREE.RingBufferGeometry(4.7,5,8);
@@ -39,10 +39,12 @@ const texture1 = new THREE.TextureLoader().load('beg.png');
 const texture2 = new THREE.TextureLoader().load('x3.png');
 const texture3 = new THREE.TextureLoader().load('x4.png');
 const texture4 = new THREE.TextureLoader().load('x5.png');
+const texture5 = new THREE.TextureLoader().load('x7.png');
+
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0x7df9ff)
 const material1 = new THREE.MeshBasicMaterial()
-material1.color = new THREE.Color(0x0000FF)
+material1.color = new THREE.Color(0xcc5500)
 
 const material2 = new THREE.MeshBasicMaterial({map: texture});
 material2.blending = THREE.NormalBlending;
@@ -57,7 +59,22 @@ material0.opacity=1
 const materialu = new THREE.MeshBasicMaterial({map: texture2});
 materialu.blending = THREE.NormalBlending;
 materialu.transparent = true
-materialu.opacity=0
+materialu.opacity=1
+
+const materialv = new THREE.MeshBasicMaterial({map: texture3});
+materialv.blending = THREE.NormalBlending;
+materialv.transparent = true
+materialv.opacity=1
+
+const materialw = new THREE.MeshBasicMaterial({map: texture4});
+materialw.blending = THREE.NormalBlending;
+materialw.transparent = true
+materialw.opacity=1
+
+const materialy = new THREE.MeshBasicMaterial({map: texture5});
+materialy.blending = THREE.NormalBlending;
+materialy.transparent = true
+materialy.opacity=1
 
 const material3 = new THREE.MeshBasicMaterial()
 material3.color = new THREE.Color(0x7df9ff)
@@ -109,6 +126,25 @@ scene.add(octagon)
 const octagon0 = new THREE.Mesh(geo0,material0)
 octagon0.position.z=-2
 scene.add(octagon0)
+
+const octagon1 = new THREE.Mesh(geo,materialu)
+octagon1.position.z=29
+octagon1.position.y=-3
+scene.add(octagon1)
+
+const octagon2 = new THREE.Mesh(geo,materialv)
+octagon2.position.z=29
+octagon2.position.y=6
+octagon2.position.x=-4
+scene.add(octagon2)
+
+const octagon3 = new THREE.Mesh(geo,materialw)
+octagon3.position.z=29
+scene.add(octagon3)
+
+const octagon4 = new THREE.Mesh(geo0,materialy)
+octagon4.position.z=29
+scene.add(octagon4)
 
 const sphere1 = new THREE.Mesh(geob,material3)
 sphere1.position.z=47

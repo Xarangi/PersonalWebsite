@@ -73,10 +73,24 @@ h1{
 }
 .s
 {text-align: center;}
+img
+{
+    height:30.6vw;
+    width:54.4vw;
+}
 @media only screen and (max-width: 768px)
 {
     .k
     {
-        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    }
+    img
+    {
+        height:37.7vw;
+        width: 45.8vw;
+    }
+    div
+    {
+        padding:0;
     }
 }

@@ -20,6 +20,7 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.RingBufferGeometry(6.5,7,8);
 const geo = new THREE.BoxGeometry(8,2,1)
+const geo0 = new THREE.BoxGeometry(11,11,1)
 const geob = new THREE.SphereBufferGeometry(1)
 const geoc = new THREE.SphereBufferGeometry(2)
 const geow = new THREE.RingBufferGeometry(7,7.6,8);
@@ -34,22 +35,36 @@ const geowb = new THREE.RingBufferGeometry(0,6.7,8);
 
 // Materials
 const texture = new THREE.TextureLoader().load('texta.png');
+const texture1 = new THREE.TextureLoader().load('beg.png');
+const texture2 = new THREE.TextureLoader().load('x3.png');
+const texture3 = new THREE.TextureLoader().load('x4.png');
+const texture4 = new THREE.TextureLoader().load('x5.png');
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0x7df9ff)
 const material1 = new THREE.MeshBasicMaterial()
 material1.color = new THREE.Color(0x0000FF)
+
 const material2 = new THREE.MeshBasicMaterial({map: texture});
 material2.blending = THREE.NormalBlending;
-
 material2.transparent = true
 material2.opacity=0
+
+const material0 = new THREE.MeshBasicMaterial({map: texture1});
+material0.blending = THREE.NormalBlending;
+material0.transparent = true
+material0.opacity=1
+
+const materialu = new THREE.MeshBasicMaterial({map: texture2});
+materialu.blending = THREE.NormalBlending;
+materialu.transparent = true
+materialu.opacity=0
 
 const material3 = new THREE.MeshBasicMaterial()
 material3.color = new THREE.Color(0x7df9ff)
 material3.wireframe = true
 
 const materialx = new THREE.MeshBasicMaterial()
-materialx.color = new THREE.Color(0xfed4c9)
+materialx.color = new THREE.Color(0x7df9ff)
 materialx.wireframe = true
 
 const material4 = new THREE.MeshBasicMaterial()
@@ -74,10 +89,26 @@ ring5.position.z=20
 const ring6 = new THREE.Mesh(geometry,material1)
 scene.add(ring6)
 ring6.position.z=25
+const ring7 = new THREE.Mesh(geometry,material)
+scene.add(ring7)
+ring7.position.z=30
+const ring8 = new THREE.Mesh(geometry,material1)
+scene.add(ring8)
+ring8.position.z=35
+const ring9 = new THREE.Mesh(geometry,material)
+scene.add(ring9)
+ring9.position.z=40
+const ring10 = new THREE.Mesh(geometry,material1)
+scene.add(ring10)
+ring10.position.z=45
 
 const octagon = new THREE.Mesh(geo,material2)
 octagon.position.z=20
 scene.add(octagon)
+
+const octagon0 = new THREE.Mesh(geo0,material0)
+octagon0.position.z=-2
+scene.add(octagon0)
 
 const sphere1 = new THREE.Mesh(geob,material3)
 sphere1.position.z=47
@@ -450,8 +481,6 @@ composer.addPass(bloompass);
 function moveCamera()
 {
     const t =((document.body.getBoundingClientRect().top)/sizes.height)*754;
-    
-    material2.opacity=0;
     camera.position.z=(t*-0.015)+7.5;
     ring1.position.y=0
     ring2.position.y=0
@@ -463,7 +492,6 @@ function moveCamera()
     {   camera.position.z=((t*-0.015)-14.5)*(0.5)+22
         if (camera.position.z>=30)
         {
-            material2.opacity= 1- (camera.position.z-30)*(0.3)
             camera.position.z=(((t*-0.015)-14.5)*(0.5)-8)*(2)+30;
         }
         else
@@ -503,6 +531,10 @@ const tick = () =>
     ring4.rotation.z = 3 + .4 * elapsedTime
     ring5.rotation.z = 4 + .4 * elapsedTime
     ring6.rotation.z = 5+ .4 * elapsedTime
+    ring7.rotation.z = 6+ .4 * elapsedTime
+    ring8.rotation.z = 7+ .4 * elapsedTime
+    ring9.rotation.z = 8+ .4 * elapsedTime
+    ring10.rotation.z = 9+ .4 * elapsedTime
     // octagon.rotation.z = 0.4* elapsedTime
 
     // ring1s.rotation.z = .2 * elapsedTime

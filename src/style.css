@@ -15,7 +15,7 @@
 html
 {
     font-family: 'nexa_lightregular';
-    font-size: clamp(16px, 1.25vw, 50px);
+    font-size: clamp(12px, 1.25vw, 50px);
     min-height: 100vh;
 }
 .webgl
@@ -46,26 +46,37 @@ div{
     text-align: center;
     color: aliceblue;
     padding: 2rem;
-    margin: 1rem;
+    margin: 3rem;
     grid-column:3/11;
     background: rgba(15, 15, 15, 0.7);
-
-    margin:1rem;
 }
 h3
 {text-align:left;
-padding:0.5rem;
+padding:0.75rem;
 opacity:1;
 }
 h2
 {text-align:left;
-padding:2rem;
+padding:1rem;
+margin:0.5rem;
 opacity:1;
+}
+
+.k
+{display:grid;
+padding:0;
+margin:0;
+grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+background: transparent;}
+h1{
+    padding:1rem;
 }
 .s
 {text-align: center;}
-.k
-{display:grid;
-gap: 1rem;
-grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-background: transparent;}
+@media only screen and (max-width: 768px)
+{
+    .k
+    {
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    }
+}

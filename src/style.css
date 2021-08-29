@@ -15,7 +15,7 @@
 html
 {
     font-family: 'nexa_lightregular';
-    font-size: clamp(12px, 1.25vw, 50px);
+    font-size: clamp(14px, 1.25vw, 50px);
     min-height: 100vh;
 }
 .webgl
@@ -48,20 +48,22 @@ div{
     padding: 2rem;
     margin: 3rem;
     grid-column:3/11;
-    background: rgba(15, 15, 15, 0.7);
+    background: rgba(15, 15, 15, 0.5);
 }
 h3
 {text-align:left;
 padding:0.75rem;
+margin:0.5rem;
 opacity:1;
 }
 h2
 {text-align:left;
 padding:1rem;
-margin:0.5rem;
+margin:1rem;
 opacity:1;
 }
-
+.c
+{text-align:center;}
 .k
 {display:grid;
 padding:0;
@@ -86,11 +88,16 @@ img
     }
     img
     {
-        height:37.7vw;
-        width: 45.8vw;
+        height:58.8vw;
+        width: 73.8vw;
     }
     div
     {
+        grid-column: 1/13;
         padding:0;
+    }
+    .p
+    {
+        padding:2rem;
     }
 }

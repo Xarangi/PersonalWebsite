@@ -21,6 +21,7 @@ const scene = new THREE.Scene()
 const geometry = new THREE.RingBufferGeometry(6.5,7,8);
 const geo = new THREE.BoxGeometry(8,2,1)
 const geo0 = new THREE.BoxGeometry(11,11,1)
+const geoz = new THREE.BoxGeometry(3,3,3)
 const geob = new THREE.SphereBufferGeometry(1)
 const geoc = new THREE.SphereBufferGeometry(2)
 const geow = new THREE.RingBufferGeometry(6,6.6,8);
@@ -77,7 +78,7 @@ materialy.transparent = true
 materialy.opacity=1
 
 const material3 = new THREE.MeshBasicMaterial()
-material3.color = new THREE.Color(0x7df9ff)
+material3.color = new THREE.Color(0xe85655)
 material3.wireframe = true
 
 const materialx = new THREE.MeshBasicMaterial()
@@ -142,16 +143,16 @@ const octagon3 = new THREE.Mesh(geo,materialw)
 octagon3.position.z=29
 scene.add(octagon3)
 
-const octagon4 = new THREE.Mesh(geo0,materialy)
-octagon4.position.z=29
-scene.add(octagon4)
+// const octagon4 = new THREE.Mesh(geo0,materialy)
+// octagon4.position.z=29
+// scene.add(octagon4)
 
 const sphere1 = new THREE.Mesh(geob,material3)
 sphere1.position.z=47
 sphere1.position.y=-10
 scene.add(sphere1)
 
-const sphere2 = new THREE.Mesh(geoc,materialx)
+const sphere2 = new THREE.Mesh(geoz,materialx)
 sphere2.position.z=47
 sphere2.position.y=-10
 scene.add(sphere2)
@@ -173,32 +174,32 @@ scene.add(bgw)
 
 const bg1 = new THREE.Mesh(geow,material)
 bg1.position.z=45
-bg1.position.y = -25
+bg1.position.y = -22
 scene.add(bg1)
 
 const bg1w = new THREE.Mesh(geowb,material4)
 bg1w.position.z=45
-bg1w.position.y = -25
+bg1w.position.y = -22
 scene.add(bg1w)
 
 const bg2 = new THREE.Mesh(geow,material)
 bg2.position.z=46
-bg2.position.y = -40
+bg2.position.y = -37
 scene.add(bg2)
 
 const bg3 = new THREE.Mesh(geow,material)
 bg3.position.z=45
-bg3.position.y = -55
+bg3.position.y = -52
 scene.add(bg3)
 
 const bg2w = new THREE.Mesh(geowb,material4)
 bg2w.position.z=46
-bg2w.position.y = -40
+bg2w.position.y = -37
 scene.add(bg2w)
 
 const bg3w = new THREE.Mesh(geowb,material4)
 bg3w.position.z=45
-bg3w.position.y = -55
+bg3w.position.y = -52
 scene.add(bg3w)
 
 // const ring1e = new THREE.Mesh(geometry,material)
@@ -571,6 +572,8 @@ const tick = () =>
     ring8.rotation.z = 7+ .4 * elapsedTime
     ring9.rotation.z = 8+ .4 * elapsedTime
     ring10.rotation.z = 9+ .4 * elapsedTime
+    sphere1.rotation.set(-0.1*elapsedTime,-0.1*elapsedTime,-0.3*elapsedTime)
+    sphere2.rotation.set(0.1*elapsedTime,0.1*elapsedTime,0.3*elapsedTime)
     // octagon.rotation.z = 0.4* elapsedTime
 
     // ring1s.rotation.z = .2 * elapsedTime

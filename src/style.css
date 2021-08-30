@@ -17,10 +17,15 @@ html
     font-family: 'nexa_lightregular';
     font-size: clamp(14px, 1.25vw, 50px);
     min-height: 100vh;
+    height:100vh;
+}
+body{
+    height: 100vh;
 }
 .webgl
 {
     position: fixed;
+    height:100%;
     top: 0;
     left: 0;
     outline: none;
@@ -48,7 +53,7 @@ div{
     padding: 2rem;
     margin: 3rem;
     grid-column:3/11;
-    background: rgba(15, 15, 15, 0.5);
+    background: rgba(15, 15, 15, 0.4);
 }
 h3
 {text-align:left;

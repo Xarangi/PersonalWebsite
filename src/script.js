@@ -184,22 +184,22 @@ scene.add(bg1w)
 
 const bg2 = new THREE.Mesh(geow,material)
 bg2.position.z=46
-bg2.position.y = -37
+bg2.position.y = -33
 scene.add(bg2)
 
 const bg3 = new THREE.Mesh(geow,material)
 bg3.position.z=45
-bg3.position.y = -52
+bg3.position.y = -47
 scene.add(bg3)
 
 const bg2w = new THREE.Mesh(geowb,material4)
 bg2w.position.z=46
-bg2w.position.y = -37
+bg2w.position.y = -33
 scene.add(bg2w)
 
 const bg3w = new THREE.Mesh(geowb,material4)
 bg3w.position.z=45
-bg3w.position.y = -52
+bg3w.position.y = -47
 scene.add(bg3w)
 
 // const ring1e = new THREE.Mesh(geometry,material)

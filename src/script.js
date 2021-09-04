@@ -19,13 +19,14 @@ const scene = new THREE.Scene()
 
 // Objects
 const geometry = new THREE.RingBufferGeometry(6.5,7,8);
-const geo = new THREE.BoxGeometry(8,2,1)
+const geo = new THREE.BoxGeometry(8,2,0)
 const geo0 = new THREE.BoxGeometry(11,11,1)
 const geoz = new THREE.BoxGeometry(3,3,3)
 const geob = new THREE.SphereBufferGeometry(1)
 const geoc = new THREE.SphereBufferGeometry(2)
 const geow = new THREE.RingBufferGeometry(6,6.6,8);
 const geowb = new THREE.RingBufferGeometry(0,5.7,8);
+const geowe = new THREE.RingBufferGeometry(4,4.4,8);
 
 // const geometry1 = new THREE.RingBufferGeometry(5.6,6,8);
 // const geometry2 = new THREE.RingBufferGeometry(4.7,5,8);
@@ -38,9 +39,10 @@ const geowb = new THREE.RingBufferGeometry(0,5.7,8);
 const texture = new THREE.TextureLoader().load('texta.png');
 const texture1 = new THREE.TextureLoader().load('beg.png');
 const texture2 = new THREE.TextureLoader().load('x3.png');
-const texture3 = new THREE.TextureLoader().load('x4.png');
+//const texture3 = new THREE.TextureLoader().load('x4.png');
 const texture4 = new THREE.TextureLoader().load('x5.png');
-const texture5 = new THREE.TextureLoader().load('x7.png');
+//const texture5 = new THREE.TextureLoader().load('x7.png');
+const texture6 = new THREE.TextureLoader().load('x10.png');
 
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0x7df9ff)
@@ -62,20 +64,25 @@ materialu.blending = THREE.NormalBlending;
 materialu.transparent = true
 materialu.opacity=1
 
-const materialv = new THREE.MeshBasicMaterial({map: texture3});
-materialv.blending = THREE.NormalBlending;
-materialv.transparent = true
-materialv.opacity=1
+const materialz = new THREE.MeshBasicMaterial({map: texture6})
+materialz.blending = THREE.NormalBlending;
+materialz.transparent = true
+materialz.opacity=1
+
+// const materialv = new THREE.MeshBasicMaterial({map: texture3});
+// materialv.blending = THREE.NormalBlending;
+// materialv.transparent = true
+// materialv.opacity=1
 
 const materialw = new THREE.MeshBasicMaterial({map: texture4});
 materialw.blending = THREE.NormalBlending;
 materialw.transparent = true
 materialw.opacity=1
 
-const materialy = new THREE.MeshBasicMaterial({map: texture5});
-materialy.blending = THREE.NormalBlending;
-materialy.transparent = true
-materialy.opacity=1
+// const materialy = new THREE.MeshBasicMaterial({map: texture5});
+// materialy.blending = THREE.NormalBlending;
+// materialy.transparent = true
+// materialy.opacity=1
 
 const material3 = new THREE.MeshBasicMaterial()
 material3.color = new THREE.Color(0xe85655)
@@ -119,6 +126,9 @@ ring9.position.z=40
 const ring10 = new THREE.Mesh(geometry,material1)
 scene.add(ring10)
 ring10.position.z=45
+const ring11 = new THREE.Mesh(geowe,material1)
+scene.add(ring11)
+ring11.position.z=45
 
 const octagon = new THREE.Mesh(geo,material2)
 octagon.position.z=20
@@ -129,15 +139,15 @@ octagon0.position.z=-2
 scene.add(octagon0)
 
 const octagon1 = new THREE.Mesh(geo,materialu)
-octagon1.position.z=29
-octagon1.position.y=-3
+octagon1.position.z=24
+octagon1.position.y=-2
 scene.add(octagon1)
 
-const octagon2 = new THREE.Mesh(geo,materialv)
-octagon2.position.z=29
-octagon2.position.y=6
-octagon2.position.x=-4
-scene.add(octagon2)
+// const octagon2 = new THREE.Mesh(geo,materialv)
+// octagon2.position.z=29
+// octagon2.position.y=6
+// octagon2.position.x=-4
+// scene.add(octagon2)
 
 const octagon3 = new THREE.Mesh(geo,materialw)
 octagon3.position.z=29
@@ -146,6 +156,10 @@ scene.add(octagon3)
 // const octagon4 = new THREE.Mesh(geo0,materialy)
 // octagon4.position.z=29
 // scene.add(octagon4)
+
+const octagon5 = new THREE.Mesh(geo,materialz)
+octagon5.position.z=43
+scene.add(octagon5)
 
 const sphere1 = new THREE.Mesh(geob,material3)
 sphere1.position.z=47

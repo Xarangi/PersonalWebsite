@@ -45,7 +45,7 @@ const texture5 = new THREE.TextureLoader().load('x7.png');
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0x7df9ff)
 const material1 = new THREE.MeshBasicMaterial()
-material1.color = new THREE.Color(0xcc5500)
+material1.color = new THREE.Color(0xe85655)
 
 const material2 = new THREE.MeshBasicMaterial({map: texture});
 material2.blending = THREE.NormalBlending;

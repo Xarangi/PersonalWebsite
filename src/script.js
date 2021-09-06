@@ -127,7 +127,7 @@ const ring10 = new THREE.Mesh(geometry,material1)
 scene.add(ring10)
 ring10.position.z=45
 const ring11 = new THREE.Mesh(geowe,material1)
-scene.add(ring11)
+//scene.add(ring11)
 ring11.position.z=45
 
 const octagon = new THREE.Mesh(geo,material2)

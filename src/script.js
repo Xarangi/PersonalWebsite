@@ -10,7 +10,7 @@ import { MeshBasicMaterial } from 'three'
 
 // Debug
 // const gui = new dat.GUI()
-
+const objects=[]
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
@@ -47,7 +47,7 @@ const texture6 = new THREE.TextureLoader().load('x10.png');
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0x7df9ff)
 const material1 = new THREE.MeshBasicMaterial()
-material1.color = new THREE.Color(0xe85655)
+material1.color = new THREE.Color(0x0000FF)
 
 const material2 = new THREE.MeshBasicMaterial({map: texture});
 material2.blending = THREE.NormalBlending;
@@ -127,7 +127,7 @@ const ring10 = new THREE.Mesh(geometry,material1)
 scene.add(ring10)
 ring10.position.z=45
 const ring11 = new THREE.Mesh(geowe,material1)
-scene.add(ring11)
+//scene.add(ring11)
 ring11.position.z=45
 
 const octagon = new THREE.Mesh(geo,material2)
@@ -135,8 +135,13 @@ octagon.position.z=20
 scene.add(octagon)
 
 const octagon0 = new THREE.Mesh(geo0,material0)
-octagon0.position.z=-2
+octagon0.position.z=-4
+octagon0.userData = {
+    URL: "http://yahoo.com"
+};
 scene.add(octagon0)
+objects.push(octagon0)
+
 
 const octagon1 = new THREE.Mesh(geo,materialu)
 octagon1.position.z=24
@@ -528,7 +533,6 @@ composer.addPass(bloompass);
 /**
  * Animate
  */
- 
 function moveCamera()
 {
     const t =((document.body.getBoundingClientRect().top)/sizes.height)*754;
@@ -630,6 +634,8 @@ const tick = () =>
     // controls.update()
 
     // Render
+
+
     //renderer.render(scene,camera)
     composer.render();
 

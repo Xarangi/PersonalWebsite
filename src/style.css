@@ -97,6 +97,10 @@ img
     height: clamp(40px,10vw,70px);
     width: clamp(40px,10vw,70px);
 }
+.bigpic{
+    height: clamp(200px,30vw,400px);
+    width: clamp(200px,30vw,400px);
+}
 .about
 {
     height:27vw;

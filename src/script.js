@@ -28,8 +28,8 @@ const geow = new THREE.RingBufferGeometry(6,6.6,8);
 const geowb = new THREE.RingBufferGeometry(0,5.7,8);
 const geowe = new THREE.RingBufferGeometry(4,4.4,8);
 
-// const geometry1 = new THREE.RingBufferGeometry(5.6,6,8);
-// const geometry2 = new THREE.RingBufferGeometry(4.7,5,8);
+const geometry1 = new THREE.RingBufferGeometry(1,1.25,8);
+const geometry2 = new THREE.RingBufferGeometry(3.5,4,8);
 // const geometry3 = new THREE.RingBufferGeometry(3.8,4,8);
 // const geometry4 = new THREE.RingBufferGeometry(2.9,3,8);
 // const geometry5 = new THREE.RingBufferGeometry(1.9,2,8);
@@ -87,6 +87,11 @@ materialw.opacity=1
 const material3 = new THREE.MeshBasicMaterial()
 material3.color = new THREE.Color(0xe85655)
 material3.wireframe = true
+
+const material3x = new THREE.MeshBasicMaterial()
+material3x.color = new THREE.Color(0xe85655)
+material3x.side=THREE.DoubleSide
+
 
 const materialx = new THREE.MeshBasicMaterial()
 materialx.color = new THREE.Color(0x7df9ff)
@@ -221,47 +226,57 @@ bg3w.position.z=45
 bg3w.position.y = -47
 scene.add(bg3w)
 
-// const ring1e = new THREE.Mesh(geometry,material)
-// scene.add(ring1e)
-// ring1e.position.z=25
-// ring1e.position.x=13
-// const ring2e = new THREE.Mesh(geometry1,material2)
-// scene.add(ring2e)
-// ring2e.position.z=25
-// ring2e.position.x=13
-// const ring3e = new THREE.Mesh(geometry2,material)
-// scene.add(ring3e)
-// ring3e.position.z=25
-// ring3e.position.x=13
-// const ring4e = new THREE.Mesh(geometry3,material2)
-// scene.add(ring4e)
-// ring4e.position.z=25
-// ring4e.position.x=13
-// const ring5e = new THREE.Mesh(geometry4,material)
-// scene.add(ring5e)
-// ring5e.position.z=25
-// ring5e.position.x=13
+const ring1e = new THREE.Mesh(geometry1,material3x)
+scene.add(ring1e)
+ring1e.position.z=45
+ring1e.position.x=-1.2
+ring1e.position.y=-22
+
+const ring2e = new THREE.Mesh(geometry1,material3x)
+scene.add(ring2e)
+ring2e.position.z=45
+ring2e.position.x=1.2
+ring2e.position.y=-22
+
+const ring3e = new THREE.Mesh(geometry1,material3x)
+scene.add(ring3e)
+ring3e.position.z=46.5
+ring3e.position.y=-32.5
+ring3e.position.x=-1.5
+const ring4e = new THREE.Mesh(geometry1,material3x)
+scene.add(ring4e)
+ring4e.position.z=46
+ring4e.position.y=-34.5
+const ring5e = new THREE.Mesh(geometry1,material3x)
+scene.add(ring5e)
+ring5e.position.z=46.5
+ring5e.position.x=1.5
+ring5e.position.y=-32.5
 // const ring6e = new THREE.Mesh(geometry5,material2)
 // scene.add(ring6e)
 // ring6e.position.z=25
 // ring6e.position.x=13
 
-// const ring1w = new THREE.Mesh(geometry,material)
-// scene.add(ring1w)
-// ring1w.position.z=25
-// ring1w.position.x=-13
-// const ring2w = new THREE.Mesh(geometry1,material2)
-// scene.add(ring2w)
-// ring2w.position.z=25
-// ring2w.position.x=-13
-// const ring3w = new THREE.Mesh(geometry2,material)
-// scene.add(ring3w)
-// ring3w.position.z=25
-// ring3w.position.x=-13
-// const ring4w = new THREE.Mesh(geometry3,material2)
-// scene.add(ring4w)
-// ring4w.position.z=25
-// ring4w.position.x=-13
+const ring1w = new THREE.Mesh(geometry1,material3x)
+scene.add(ring1w)
+ring1w.position.z=46
+ring1w.position.y=-46
+ring1w.position.x=-1
+const ring2w = new THREE.Mesh(geometry1,material3x)
+scene.add(ring2w)
+ring2w.position.z=46
+ring2w.position.y=-48
+ring2w.position.x=-1
+const ring3w = new THREE.Mesh(geometry1,material3x)
+scene.add(ring3w)
+ring3w.position.z=46
+ring3w.position.y=-46
+ring3w.position.x=1
+const ring4w = new THREE.Mesh(geometry1,material3x)
+scene.add(ring4w)
+ring4w.position.z=46
+ring4w.position.x=1
+ring4w.position.y=-48
 // const ring5w = new THREE.Mesh(geometry4,material)
 // scene.add(ring5w)
 // ring5w.position.z=25
@@ -544,18 +559,13 @@ function moveCamera()
     ring5.position.y=0
     ring6.position.y=0
     if (camera.position.z>=22)
-    {   camera.position.z=((t*-0.015)-14.5)*(0.5)+22
-        if (camera.position.z>=30)
-        {
-            camera.position.z=(((t*-0.015)-14.5)*(0.5)-8)*(2)+30;
-        }
-        else
-        {    material2.opacity=(camera.position.z-22)*(0.3)}
+    {   camera.position.z=((t*-0.015)-14.5)*(0.58)+22
+        material2.opacity=(camera.position.z-22)*(0.3)
     }
  
     if(camera.position.z>=50)
     {
-        camera.position.y=(camera.position.z-50)*-0.5
+        camera.position.y=(camera.position.z-50)*-(0.86)
         camera.position.z=50
         if(camera.position.y<=-10)
         {
@@ -608,17 +618,17 @@ const tick = () =>
     // ring5n.rotation.z = .6 * elapsedTime
     // ring6n.rotation.z = .7 * elapsedTime
 
-    // ring1e.rotation.z = .2 * elapsedTime
-    // ring2e.rotation.z = .3 * elapsedTime
+    ring1e.rotation.z = .5 * elapsedTime
+    ring2e.rotation.z = -.5 * elapsedTime
     // ring3e.rotation.z = .4 * elapsedTime
     // ring4e.rotation.z = .5 * elapsedTime
     // ring5e.rotation.z = .6 * elapsedTime
     // ring6e.rotation.z = .7 * elapsedTime
 
-    // ring1w.rotation.z = .2 * elapsedTime
-    // ring2w.rotation.z = .3 * elapsedTime
-    // ring3w.rotation.z = .4 * elapsedTime
-    // ring4w.rotation.z = .5 * elapsedTime
+    ring1w.rotation.z = .3 * elapsedTime
+    ring2w.rotation.z = .3 * elapsedTime
+    ring3w.rotation.z = -.3 * elapsedTime
+    ring4w.rotation.z = -.3 * elapsedTime
     // ring5w.rotation.z = .6 * elapsedTime
     // ring6w.rotation.z = .7 * elapsedTime
 

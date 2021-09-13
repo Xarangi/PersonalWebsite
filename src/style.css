@@ -80,6 +80,9 @@ h1{
     padding:1rem;
     font-weight: bold;
 }
+a{
+    margin:1.5rem;
+}
 .s
 {text-align: center;}
 img
@@ -88,6 +91,11 @@ img
     width:54.4vw;
     margin-bottom:1rem;
     margin-top:0.5rem;
+}
+.icon
+{
+    height: clamp(40px,10vw,70px);
+    width: clamp(40px,10vw,70px);
 }
 .about
 {

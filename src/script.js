@@ -38,7 +38,7 @@ const geometry2 = new THREE.RingBufferGeometry(3.5,4,8);
 // const geometry4 = new THREE.RingBufferGeometry(2.9,3,8);
 // const geometry5 = new THREE.RingBufferGeometry(1.9,2,8);
 const particlesGeometry = new THREE.BufferGeometry;
-const particlesCnt = 300;
+const particlesCnt = 200;
 
 const posArray = new Float32Array(particlesCnt*3);
 const posArray1 = new Float32Array(particlesCnt);
@@ -48,7 +48,7 @@ for(let i=0; i<particlesCnt*3; i++){
 }
 for(let i=0;i<particlesCnt;i++)
 {
-    posArray1[i]= (Math.random()-0.5)%90 -30
+    posArray1[i]= (Math.random()-0.5)%80 -20
 }
 
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
@@ -120,7 +120,7 @@ const material4 = new THREE.MeshBasicMaterial()
 material4.color = new THREE.Color(0x0)
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.012, 
+    size: 0.17, 
     map: cross, 
     transparent: true,
     blending: THREE.AdditiveBlending
@@ -634,8 +634,8 @@ const tick = () =>
     ring10.rotation.z = 9+ .4 * elapsedTime
     sphere1.rotation.set(-0.1*elapsedTime,-0.1*elapsedTime,-0.3*elapsedTime)
     sphere2.rotation.set(0.1*elapsedTime,0.1*elapsedTime,0.3*elapsedTime)
-    particlesMesh.rotation.x=0.08*elapsedTime
-    particlesMesh.rotation.y=0.08*elapsedTime
+    particlesMesh.rotation.x=0.03*elapsedTime
+    particlesMesh.rotation.y=0.03*elapsedTime
     // octagon.rotation.z = 0.4* elapsedTime
 
     // ring1s.rotation.z = .2 * elapsedTime

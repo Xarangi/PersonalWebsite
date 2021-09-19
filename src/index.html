@@ -6,6 +6,37 @@
     <title>Xarangi- Personal Website</title>
 </head>
 <body>
+    <nav role="navigation">
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
+    
+    <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+      <a href="#"><li>Home</li></a>
+      <a href="#"><li>Links</li></a>
+      <a href="#work"><li>Work Experience</li></a>
+      <a href="#"><li>Projects</li></a>
+      <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+    </ul>
+  </div>
+</nav>
     <canvas class="webgl"></canvas>
     <section>
     </section>
@@ -24,7 +55,7 @@
             <br><br>
             <a class ="btn-light" href="https://drive.google.com/file/d/1jYKpZK9Rf9rJn6aNu_ZDqrYOBE6Ky0j-/view?usp=sharing">Resume</a>
         </div>
-        <div class="p">
+        <div class="p" id="work">
             <h1>Work Experience</h1> <br>
 
             <h2>The Gazelle - (Deputy Web Chief)</h2>

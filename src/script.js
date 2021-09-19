@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
+import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import * as dat from 'dat.gui'
@@ -13,6 +14,9 @@ import { MeshBasicMaterial } from 'three'
 const objects=[]
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
+
+const loader = new THREE.TextureLoader();
+const cross = loader.load('whitedots.png');
 
 // Scene
 const scene = new THREE.Scene()
@@ -33,7 +37,22 @@ const geometry2 = new THREE.RingBufferGeometry(3.5,4,8);
 // const geometry3 = new THREE.RingBufferGeometry(3.8,4,8);
 // const geometry4 = new THREE.RingBufferGeometry(2.9,3,8);
 // const geometry5 = new THREE.RingBufferGeometry(1.9,2,8);
+const particlesGeometry = new THREE.BufferGeometry;
+const particlesCnt = 300;
 
+const posArray = new Float32Array(particlesCnt*3);
+const posArray1 = new Float32Array(particlesCnt);
+
+for(let i=0; i<particlesCnt*3; i++){
+    posArray[i] = (Math.random()-0.5) * 80
+}
+for(let i=0;i<particlesCnt;i++)
+{
+    posArray1[i]= (Math.random()-0.5)%90 -30
+}
+
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+particlesGeometry.setAttribute('position.z', new THREE.BufferAttribute(posArray1, 1));
 
 // Materials
 const texture = new THREE.TextureLoader().load('texta.png');
@@ -100,7 +119,17 @@ materialx.wireframe = true
 const material4 = new THREE.MeshBasicMaterial()
 material4.color = new THREE.Color(0x0)
 
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.012, 
+    map: cross, 
+    transparent: true,
+    blending: THREE.AdditiveBlending
+})
+
 // Mesh
+
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial)
+scene.add(particlesMesh)
 const ring1 = new THREE.Mesh(geometry,material)
 scene.add(ring1)
 ring1.position.x=0
@@ -541,8 +570,11 @@ Post processing
 const renderpass = new RenderPass(scene,camera);
 composer.addPass(renderpass);
 const bloompass = new UnrealBloomPass(1,1,1,0);
+const glitchpass = new GlitchPass()
+// glitchpass.rendertoScreen=true;
 bloompass.renderToScreen=true;
 composer.addPass(bloompass);
+// composer.addPass(glitchpass)
 
 
 /**
@@ -602,6 +634,8 @@ const tick = () =>
     ring10.rotation.z = 9+ .4 * elapsedTime
     sphere1.rotation.set(-0.1*elapsedTime,-0.1*elapsedTime,-0.3*elapsedTime)
     sphere2.rotation.set(0.1*elapsedTime,0.1*elapsedTime,0.3*elapsedTime)
+    particlesMesh.rotation.x=0.08*elapsedTime
+    particlesMesh.rotation.y=0.08*elapsedTime
     // octagon.rotation.z = 0.4* elapsedTime
 
     // ring1s.rotation.z = .2 * elapsedTime

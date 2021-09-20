@@ -10,6 +10,8 @@ import * as dat from 'dat.gui'
 import { MeshBasicMaterial } from 'three'
 
 // Debug
+console.log(screen.height)
+let heightcont=screen.height
 // const gui = new dat.GUI()
 const objects=[]
 // Canvas
@@ -502,8 +504,9 @@ ring4w.position.y=-48
  * Sizes
  */
 const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+    height: Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+
 }
 
 window.addEventListener('resize', () =>
@@ -511,7 +514,6 @@ window.addEventListener('resize', () =>
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
-
     // Update camera
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
@@ -523,6 +525,7 @@ window.addEventListener('resize', () =>
     composer.setSize(sizes.width, sizes.height)
     composer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
+    // sizes.height = max(document.getElementsById("control").clientHeight,window.innerHeight)
 
 })
 
@@ -582,7 +585,7 @@ composer.addPass(bloompass);
  */
 function moveCamera()
 {
-    const t =((document.body.getBoundingClientRect().top)/sizes.height)*754;
+    const t =((document.body.getBoundingClientRect().top)/document.documentElement.clientHeight)*754;
     camera.position.z=(t*-0.015)+7.5;
     ring1.position.y=0
     ring2.position.y=0

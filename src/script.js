@@ -10,7 +10,7 @@ import * as dat from 'dat.gui'
 import { MeshBasicMaterial } from 'three'
 
 
-document.getElementsByID("links").style.visibility = 'visible'
+
 // Debug
 console.log(screen.height)
 let heightcont=screen.height

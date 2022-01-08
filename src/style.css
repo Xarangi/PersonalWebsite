@@ -100,8 +100,8 @@ img
     width: clamp(40px,10vw,70px);
 }
 .bigpic{
-    height: clamp(200px,30vw,400px);
-    width: clamp(200px,30vw,400px);
+    height: clamp(180px,24vw,300px);
+    width: clamp(230px,32vw,440px);
 }
 .about
 {

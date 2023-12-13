@@ -86,12 +86,21 @@ h1{
 a{
     margin:1.5rem;
 }
+.aimg{
+  /* display: block; Make <a> tags containing images behave as block elements */
+  margin: 0 auto; /* Center the block element */
+  align-content: center;
+  text-align:center;
+  /* Other styles to reset link appearance, if necessary */
+}
 .s
 {text-align: center;}
 img
 {
     height:30.6vw;
     width:54.4vw;
+    margin-left:auto;
+    margin-right: auto;
     margin-bottom:1rem;
     margin-top:0.5rem;
 }
@@ -303,4 +312,32 @@ img
 {
   width:0;
   height:100vh;
+}
+
+.centerxx
+{
+  text-align: center;
+}
+
+#audioControl {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #fbfbfb; /* Green background */
+  color: rgb(52, 48, 48); /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em; /* Responsive font size */
+  z-index:2;
+}
+
+/* Adjust the button size on smaller screens */
+@media only screen and (max-width: 600px) {
+  #audioControl {
+      padding: 8px 15px;
+      font-size: 0.6em;
+      z-index:2;
+  }
 }

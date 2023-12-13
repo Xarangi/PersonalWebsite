@@ -31,6 +31,13 @@
     </ul>
   </div>
 </nav>
+<!-- Audio element (hidden) -->
+<audio id="myAudio">
+    <source src="https://github.com/Xarangi/PersonalWebsite/blob/main/static/bg.mp3?raw=true" type="audio/mpeg">
+</audio>
+
+<!-- Play Audio Button -->
+<button id="audioControl" onclick="toggleAudio()">🔊</button>
 <canvas class="webgl"></canvas>
 
     <section><div id="start">
@@ -69,56 +76,60 @@
         <div class="p" id="work">
             <h1>Work Experience</h1> <br>
 
-            <h2>Center for AI Safety - (MLSS Scholar)</h2>
+            <h2>Student Research Assistant - Social Machines and RoboTics (SMART) Lab:  Mar 2023 - Present</h2>
+            <h3>- Currently conducting research on improving multimodal models to detect depression</h3>
+
+            <h2>UGSRP Smmer Student Researcher - AI4CE LAB: Jun 2023 - Sep 2023</h2>
+            <h3>- Conducted research on using LLMs for VPR task.</h3>
+            
+            <h2>Center for AI Safety - (MLSS Scholar) - Jun 2022 - Sep 2022</h2>
             <h3>- Completed a course containing lectures and assignments from MIT, Umich's ML courses. </h3>
             <h3>- Conducted self-research on subtopics of AI Safety such as interpretability, robustness etc.</h3>
             <h3>- Finished assignments implementing parts of said research, finished a final project. </h3>
 
-            <h2>EA @NYUAD - (Priorities Researcher)</h2>
+            <h2>EA @NYUAD - (Priorities Researcher) - Oct 2021 - May 2022</h2>
             <h3>- Conducted research on the state of long term AI Safety research in the UAE</h3>
             <h3>- Interviewed professors, Phd candidates and created a career guide for students interested in the field.</h3>
-            
-            <h2>The Gazelle - (Deputy Web Chief)</h2>
-            <h3>- Conducted regular maintenance and updation of the Gazelle website</h3>
-            <h3>- Assisted in troubleshooting and made decisions on revamping the looks of the website</h3>
 
-            <h2>Nangeli - (Founder and Developer)</h2>
-            <h3>- Founded startup aiming to empower and uplift rural women in India</h3>
-            <h3>- Designing and building landing website</h3>
 
-            <h2>Expo2020 Dubai - (Tawassul Team)</h2>
-            <h3>- Undergoing training as a part of the IT and media team</h3>
-            <h3>- Managing the media managament system </h3>
-
-            <h2>Young Scientists Journal - (Ambassador to India)</h2>
-            <h3>- Reached out to over 500 schools across the country</h3>
-            <h3>- Designed the website for a new subprogram</h3>
-            <h3>- Organised virtual events attended by educators across the country</h3>
-
-            <h1>Other Experience</h1>
-            <h2>Phasm Studio- (Co-Founder and Developer)</h2>
-            <h2>Google Developer Student Club- (Web and Software Development Lead)</h2>
-            <h2>Times of India (NiE)- (Student Correspondent)</h2>
-            <h2>Covid-19 Volunteering- India (Fundraising, Maintaining bed records)</h2>
+            <br> <br> <a class="btn-light" href="https://linkedin.com/in/ss13">View more</a>
         </div>
 
 
         <div id="proj">
             <h1>Projects</h1>
-            <h2 class="c">Procrastination Hunter</h2>
-            <h3> A python game based on the classic space invaders using Processing IDE</h3>
-            <picture>
-            <source media="(max-width: 799px)" srcset="https://github.com/Xarangi/Procrastination-Hunter/blob/main/screenshots/x1.png?raw=true">
-            <source media="(min-width: 800px)" srcset="https://github.com/Xarangi/Procrastination-Hunter/blob/main/screenshots/Screenshot%20(1).png?raw=true"">
-            <img src="https://github.com/Xarangi/Procrastination-Hunter/blob/main/screenshots/Screenshot%20(1).png?raw=true">
-            </picture>
-            <h2 class="c">Sprouty - The Productivity Bot</h2>
-            <h3> A discord bot built using python with discord.py</h3>
-            <img src="https://github.com/Xarangi/PersonalWebsite/blob/main/static/x8.png?raw=true">
-            <h2 class="c">Virtual File System</h2>
-            <h3> A virtual file system built using C++. All data structures used implemented from scratch </h3>
-            <h2 class="c">Word Counting wizard</h2>
-            <h3> A word counter built using C++. Generates insights such as the total word count or the count of a specific word fior any given document </h3>
+        
+            <!-- Project: 30MFF Project: Rush -->
+            <a href="https://github.com/Xarangi/Xarangi.github.io" target="_blank" style="color: inherit;"><h2 class="c">30MFF Project: Rush</h2></a>
+            <h3 class="centerxx">Chaos unfolds as one student (like all of us) mismanaged their time : <br>Film created with Kashyapa, QM</h3><br>
+            <h3>Experience the Project:</h3><br>
+            <a href="https://xarangi.github.io/" target="_blank" class=".aimg">
+                <img src="https://github.com/Xarangi/PersonalWebsite/blob/main/static/rush.png?raw=true" alt="Rush Project Image">
+            </a>
+        
+            <!-- Project: Comic Project: Fin or Fate -->
+            <a href="https://github.com/qm-naushad/finorfatecomic" target="_blank" style="color: inherit;"><h2 class="c">Comic Project: Fin or Fate</h2></a>
+            <h3 class="centerxx">A 6 panel comic about Bob - our fish protagonist! : <br>Created with Bukha, Sara, QM</h3><br>
+            <h3>Experience the Project:</h3><br>
+            <a href="https://qm-naushad.github.io/finorfatecomic/" target="_blank" class=".aimg">
+                <img src="https://github.com/Xarangi/PersonalWebsite/blob/main/static/comic.png?raw=true" alt="Comic Project Image">
+            </a>
+        
+            <!-- Project: Sound Project: The House -->
+            <a href="https://github.com/fhgggtyf/SoundProject" target="_blank" style="color: inherit;"><h2 class="c">Sound Project: The House</h2></a>
+            <h3 class="centerxx">Come with us as our protagonists get lost in a house and look for an escape! : <br>Created with Jason, Diana, Jiho</h3><br>
+            <h3>Experience the Project:</h3><br>
+            <a href="https://fhgggtyf.github.io/SoundProject/src/index.html" target="_blank" class=".aimg">
+                <img src="https://github.com/Xarangi/PersonalWebsite/blob/main/static/sound.png?raw=true" alt="Sound Project Image">
+            </a>
+        
+            <!-- Project: Video Project: Superheroes On The News -->
+            <a href="https://github.com/fangfausto/video-project-commlab" target="_blank" style="color: inherit;"><h2 class="c">Video Project: Superheroes On The News</h2></a>
+            <h3 class="centerxx">People have superpowers now! Join Holly and Polly as they attempt to take our viewers through this new reality: <br>Created with Naijah, Fausto, Sara</h3><br>
+            <h3>Experience the Project:</h3><br>
+            <a href="https://fangfausto.github.io/video-project-commlab/" target="_blank" class=".aimg">
+                <img src="https://github.com/Xarangi/PersonalWebsite/blob/main/static/video.png?raw=true" alt="Video Project Image">
+            </a>
             <br> <br> <a class="btn-light" href="https://github.com/Xarangi">View more</a>
             
         </div>
@@ -147,7 +158,21 @@
         </div>   
         </div>
     </main>
+    <script>
+        function toggleAudio() {
+    var audio = document.getElementById("myAudio");
+    var button = document.getElementById("audioControl");
 
+    if (audio.paused) {
+        audio.play();
+        button.textContent = '🔇';
+    } else {
+        audio.pause();
+        button.textContent = '🔊';
+    }
+}
+
+    </script>
     
 </body>
 </html>

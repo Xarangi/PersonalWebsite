@@ -4,17 +4,9 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: 'nexa_lightregular';
-    src: url('nexalight-webfont.woff2') format('woff2'),
-         url('nexalight-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
 html
 {
-    font-family: 'nexa_lightregular';
+    font-family: 'Afacad', sans-serif;
     font-size: clamp(14px, 1.25vw, 50px);
     min-height: 100vh;
     height:100vh;
@@ -65,7 +57,8 @@ margin:0.5rem;
 opacity:1;
 }
 h2
-{text-align:left;
+{font-family: 'Baumans', sans-serif;
+  text-align:left;
 font-weight: bold;
 padding:1rem;
 margin:1rem;
@@ -80,6 +73,7 @@ margin:0;
 grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
 background: transparent;}
 h1{
+  font-family: 'Baumans', sans-serif;
     padding:1rem;
     font-weight: bold;
 }
@@ -106,12 +100,12 @@ img
 }
 .icon
 {
-    height: clamp(40px,10vw,70px);
-    width: clamp(40px,10vw,70px);
+    height: clamp(20px,10vw,40px);
+    width: clamp(20px,10vw,40px);
 }
 .bigpic{
-    height: clamp(180px,24vw,300px);
-    width: clamp(230px,32vw,440px);
+    height: clamp(345px,36vw,659px);
+    width: clamp(230px,24vw,440px);
 }
 .about
 {
